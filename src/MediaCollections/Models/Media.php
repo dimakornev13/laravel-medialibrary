@@ -412,6 +412,7 @@ class Media extends Model implements Attachable, Htmlable, Responsable
             $fileAdder->usingFileName($fileName);
         }
         $newMedia = $fileAdder
+            ->storingConversionsOnDisk($this->getConversionsDiskDriverName())
             ->toMediaCollection($collectionName, $diskName);
 
         $temporaryDirectory->delete();
